@@ -19,6 +19,10 @@ main_page_head = '''
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
+            background-image:url('http://wallpapercave.com/wp/W9hmRj8.jpg');
+            height: 500px;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         #trailer .modal-dialog {
             margin-top: 200px;
@@ -36,11 +40,13 @@ main_page_head = '''
             height: 100%;
         }
         .movie-tile {
+            color: #FFFFFF;
             margin-bottom: 20px;
             padding-top: 20px;
         }
         .movie-tile:hover {
             background-color: #EEE;
+            color: #000000;
             cursor: pointer;
         }
         .scale-media {
@@ -104,7 +110,7 @@ main_page_content = '''
 
     <!-- Main Page Content -->
     <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top navbar-custom" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">Jason's Favorite Baseball Movies</a>
@@ -125,6 +131,7 @@ movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
+    <h4>{release_year}</h4>
 </div>
 '''
 
@@ -145,7 +152,8 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            trailer_youtube_id=trailer_youtube_id,
+            release_year=movie.release_year
         )
     return content
 
