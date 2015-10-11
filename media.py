@@ -11,9 +11,16 @@
 import webbrowser
 
 # This class provides a way to store movie related information
+
+
 class Movie():
-        # initialize instance of class Movie
-    def __init__(self, movie_title, movie_storyline, poster_image, trailer_youtube, movie_stars, release_year):
+    """This class provides a way to store movie related information including\
+    title, storyline, poster image, online trailer video, list of the stars \
+    and the release year. """
+    def __init__(self, movie_title, movie_storyline, poster_image,
+                 trailer_youtube, movie_stars, release_year):
+        """ This is the constructor method which instantiates each movie with \
+        data provided in other functions """
         self.title = movie_title
         self.storyline = movie_storyline
         self.poster_image_url = poster_image
@@ -22,4 +29,6 @@ class Movie():
         self.release_year = release_year
 
     def show_trailer(self):
+        """ This function launches the trailer with the video contained \
+        in the trailer_youtube_url variable."""
         webbrowser.open(self.trailer_youtube_url)
